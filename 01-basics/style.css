@@ -38,8 +38,6 @@ td {
 
 .form {
     margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
     width: 17em;
 }
 
@@ -62,17 +60,11 @@ td {
 
 div.container > div {
     margin-top: 50px;
-/*
-    display: inline-flex;
-     flex-direction: column;
-    align-items: center;
-*/
 }
 
 .quote {
     width: 700px;
     height: 200px;
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,7 +113,6 @@ textarea {
 
 .article {
     width: 900px;
-    margin: 0 auto;
 }
 
 .topic {
