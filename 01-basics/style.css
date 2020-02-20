@@ -118,7 +118,7 @@ div.news_container > div {
     margin-top: 20px;
 }
 
-.quote_container2 {
+.quote_container_another_realization {
     align-content: center;
     width: 720px;
     height: 409px;
@@ -130,7 +130,7 @@ div.news_container > div {
     opacity: 0.5;
 }
 
-.quote2 {
+.quote_another_realization {
     position: relative;
     font-weight: bold;
     font-size: 20px;
