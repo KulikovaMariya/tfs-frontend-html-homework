@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Homework lesson 1</title>
 </head>
 
 <body>
-    <div class="container">
+    <div class="news_container">
         <article class="article">
             <h1 class="topic">Как жить экологично в&nbsp;мегаполисе&nbsp;&mdash; советы на&nbsp;все случаи жизни</h1>
             <p>В&nbsp;этой статье я&nbsp;собрала все привычные сферы нашей жизни и&nbsp;разложила их&nbsp;по&nbsp;полочкам. Получилась отличная подробная инструкция, которая поможет вам начать вести экологичный образ жизни. На&nbsp;первый взгляд эти советы могут показаться слишком категоричным, поэтому выбирайте&nbsp;то, что <b>вам не&nbsp;трудно будет делать прямо сейчас.</b> Отказаться сразу от&nbsp;всех неэкологичных решений у&nbsp;вас, скорее всего, не&nbsp;получится, да&nbsp;и&nbsp;не&nbsp;нужно это.</p>
@@ -21,8 +22,8 @@
             </ul>
             <p>(Нумерованный список) Содержание:</p>
             <ol class="ordered_list">
-                <li>Дом</li>
-                <li>Работа</li>
+                <li class="ordered_list_element">Дом</li>
+                <li class="ordered_list_element">Работа</li>
             </ol>
             <h2 class="topic">Дом</h2>
             <p>Место, где мы&nbsp;проводим большую часть времени. Именно с&nbsp;него стоит начать &laquo;экологическую перестройку&raquo;, так как это самое доступное место для внедрения маленьких инноваций. Поверьте, создание экологичного дома пойдет на&nbsp;пользу всем&nbsp;&mdash; вам, вашей семье, бюджету и&nbsp;природе.</p>
@@ -39,38 +40,45 @@
             <h2 class="topic">Работа</h2>
             <p>Я&nbsp;не&nbsp;работаю в&nbsp;офисе, но&nbsp;иногда выбираюсь в&nbsp;коворкинг и&nbsp;с&nbsp;ужасом наблюдаю, какое количество одноразовых стаканчиков используют люди в&nbsp;течение рабочего дня. <b>Как-то видела девушку, которая пила чай из&nbsp;4-х (!) &laquo;бумастиковых&raquo; стаканчиков! Кто больше?</b></p>
             <p>Бумастиковые стаканчики&nbsp;&mdash; все стаканчики, которые мы&nbsp;называем &laquo;бумажными&raquo;. Они покрыты тонким слоем пластика внутри, чтобы стаканчик не&nbsp;протекал. Переработать их&nbsp;сложно, а&nbsp;сделанные из&nbsp;пластиковой стружки экземпляры и&nbsp;вовсе не&nbsp;поддаются переработке.</p>
-            <img src="https://prostonail.com/wp-content/uploads/2019/09/ecoliving2.jpg" alt="pot of coffe and cup">
+            <img class="image image_with_border" src="https://prostonail.com/wp-content/uploads/2019/09/ecoliving2.jpg" alt="pot of coffe and cup">
             <p>В&nbsp;общем, если вы&nbsp;работаете в&nbsp;офисе, заведите себе собственную чашку, по&nbsp;желанию темную внутри (обычно в&nbsp;офисе нет условий, чтобы качественно ее&nbsp;отмыть от&nbsp;следов чая). Обед лучше съесть прямо в&nbsp;заведении либо взять из&nbsp;дому. По&nbsp;возможности не&nbsp;берите обед на&nbsp;вынос в&nbsp;одноразовых пластиковых контейнерах. Только представьте, какое это огромное количество мусора, если вы&nbsp;делаете так каждый день! Да&nbsp;и&nbsp;польза от&nbsp;еды из&nbsp;кулинарии в&nbsp;супермаркете, мягко говоря, сомнительная.</p>
         </article>
 
         <div class="sup_text"><sup>Надстрочный текст</sup></div>
         <div class="sub_text"><sub>Подстрочный текст</sub></div>
-        <div class="quote_div">
+        <div class="quote_container">
             <blockquote class="quote">
                 <p>От&nbsp;перца, верно, начинают всем перечить... От&nbsp;уксуса&nbsp;&mdash; куксятся, от&nbsp;горчицы&nbsp;&mdash; огорчаются, от&nbsp;лука&nbsp;&mdash; лукавят, от&nbsp;вина&nbsp;&mdash; винятся, а&nbsp;от&nbsp;сдобы&nbsp;&mdash; добреют. Как жалко, что никто об&nbsp;этом не&nbsp;знает... Всё было&nbsp;бы так просто! Ели&nbsp;бы сдобу и&nbsp;добрели!</p>
                 <cite>Льюис Кэрролл. Приключения Алисы в&nbsp;Стране чудес</cite>
             </blockquote>
         </div>
+        <div class="quote_container2">
+            <img class="backgraund" src="https://cdn-st1.rtr-vesti.ru/p/xw_1497487.jpg" alt="pic">
+            <blockquote class="quote2">
+                <p>От&nbsp;перца, верно, начинают всем перечить... От&nbsp;уксуса&nbsp;&mdash; куксятся, от&nbsp;горчицы&nbsp;&mdash; огорчаются, от&nbsp;лука&nbsp;&mdash; лукавят, от&nbsp;вина&nbsp;&mdash; винятся, а&nbsp;от&nbsp;сдобы&nbsp;&mdash; добреют. Как жалко, что никто об&nbsp;этом не&nbsp;знает... Всё было&nbsp;бы так просто! Ели&nbsp;бы сдобу и&nbsp;добрели!</p>
+                <cite>Льюис Кэрролл. Приключения Алисы в&nbsp;Стране чудес</cite>
+            </blockquote>
+        </div>
         <div class="html_study">Учимся работать&nbsp;с &lt;HTML&gt;</div>
-        <div class="table_div">
+        <div class="table_container">
             <table class="table">
                 <caption>Table</caption>
                 <thead>
                     <tr>
-                        <td>Column1</td>
-                        <td>Column2</td>
-                        <td>Column3</td>
+                        <td class="table_data">Column1</td>
+                        <td class="table_data">Column2</td>
+                        <td class="table_data">Column3</td>
                     </tr>
                 </thead>
                 <tr>
-                    <td>Data1</td>
-                    <td>Data2</td>
-                    <td>Data3</td>
+                    <td class="table_data">Data1</td>
+                    <td class="table_data">Data2</td>
+                    <td class="table_data">Data3</td>
                 </tr>
                 <tr>
-                    <td>Data1</td>
-                    <td>Data2</td>
-                    <td>Data3</td>
+                    <td class="table_data">Data1</td>
+                    <td class="table_data">Data2</td>
+                    <td class="table_data">Data3</td>
                 </tr>
             </table>
         </div>
@@ -78,31 +86,30 @@
             <fieldset class="fieldset">
                 <legend class="legend">Форма обратной связи</legend>
                 <div class="form_row">
-                    <lable>Имя</lable><input type="text" placeholder="Иван">
+                    <lable>Имя</lable><input class="input" type="text" placeholder="Иван">
                 </div>
                 <div class="form_row">
-                    <lable>Email</lable><input type="email" placeholder="example@gmail.com">
+                    <lable>Email</lable><input class="input" type="email" placeholder="example@gmail.com">
                 </div>
                 <div class="form_row">
-                    <lable>Тел</lable><input type="tel" placeholder="+7-916-916-16-16">
+                    <lable>Тел</lable><input class="input" type="tel" placeholder="+7-916-916-16-16">
                 </div>
                 <div class="form_row">
-                    <lable>Тема</lable><input type="text">
+                    <lable>Тема</lable><input class="input" type="text">
                 </div>
-                <div class="form_row"><textarea name="" id="" cols="25" rows="7" placeholder="Комментарий"></textarea>
+                <div class="form_row"><textarea class="textarea" name="" id="" cols="25" rows="7" placeholder="Комментарий"></textarea>
                     <input class="button" type="submit" value="Отправить"></div>
             </fieldset>
         </form>
-        <div class="author_block">
+        <div class="author_container">
             <div class="column_1"><img class="author" src="https://i.pinimg.com/originals/d0/08/bc/d008bc0c749387da78f3c9b43dd98be5.jpg" alt="author"></div>
             <div class="column_2">
-                <p>(вымышлнный) автор статьи</p>
+                <p>(вымышленный) автор статьи</p>
                 <p>Катя Петрова</p>
             </div>
         </div>
     </div>
 </body>
-<hr>
 </div>
 
 </html>

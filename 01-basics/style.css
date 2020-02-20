@@ -1,8 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 p {
     text-indent: 30px;
     text-align: justify;
@@ -19,11 +14,11 @@ p {
     padding-right: 5px;
 }
 
-ol > li {
+.ordered_list_element {
     margin-left: 15px;
 }
 
-td {
+.table_data {
     border-style: solid;
     border-color: gray;
 }
@@ -41,24 +36,26 @@ td {
     width: 17em;
 }
 
-.image {
+.image_with_border {
     border: 4px solid black;
+    box-sizing: border-box;
+    
 }
 
-.author_block {
+.author_container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
 }
 
-.container {
+.news_container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-div.container > div {
+div.news_container > div {
     margin-top: 50px;
 }
 
@@ -92,11 +89,11 @@ div.container > div {
     margin-top: 5px;
 }
 
-div.form_row > input {
+.input {
     border-radius: 5px;
 }
 
-textarea {
+.textarea {
     border-radius: 5px;
     margin-bottom: 5px;
 }
@@ -113,9 +110,34 @@ textarea {
 
 .article {
     width: 900px;
+    
 }
 
 .topic {
     text-align: center;
     margin-top: 20px;
+}
+
+.quote_container2 {
+    align-content: center;
+    width: 720px;
+    height: 409px;
+}
+
+.backgraund {
+    position: absolute;
+    border-radius: 25px;
+    opacity: 0.5;
+}
+
+.quote2 {
+    position: relative;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 85px;
+}
+
+.image {
+    width: 900px;
+    
 }
