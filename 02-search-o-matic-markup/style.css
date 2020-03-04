@@ -40,6 +40,8 @@
     margin-left: 20px;
 }
 
+
+
 .search_block_row {
     width: 628px;
     margin: var(--margin);
@@ -88,6 +90,11 @@
     border-radius: 4px;
     padding: 6px 16px;
     margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.search_history_item:hover {
+    background: #FFFFFF;
 }
 
 .search_hitory_active {
@@ -102,4 +109,9 @@
 .search_block_row_active {
     width: 1280px;
     justify-content: flex-start;
+}
+
+.search_hitory_active_more_histry {
+    display: flex;
+    flex-wrap: wrap;
 }
