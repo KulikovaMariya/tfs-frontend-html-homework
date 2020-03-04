@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>search_o_matic</title>
-    
+
     <link rel="stylesheet" href="normalize.css">
-    
-    <link rel="stylesheet"href="style.css">
-    
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -23,15 +23,33 @@
                 </svg>
 
             </div>
-            <div class="search_row">
-                <div class="row">
+            <div class="search_block">
+                <div class="search_block_row">
                     <svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M24 14C24 19.5228 19.5228 24 14 24C8.47715 24 4 19.5228 4 14C4 8.47715 8.47715 4 14 4C19.5228 4 24 8.47715 24 14ZM22.4002 25.2009C20.0603 26.9585 17.1518 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 17.1519 26.9584 20.0605 25.2007 22.4004C25.2403 22.4302 25.2791 22.4617 25.317 22.4949L33.317 29.4949C34.1483 30.2222 34.2325 31.4858 33.5052 32.317C32.7778 33.1483 31.5143 33.2325 30.683 32.5052L22.683 25.5052C22.5764 25.4119 22.4821 25.3098 22.4002 25.2009Z" fill="white" />
                     </svg>
-                    <input class="search_input" type="text" placeholder="Поиск фильмов по жанрам и актерам">
+                    <input class="search_block_input" type="text" placeholder="Поиск фильмов по жанрам и актерам">
+                    <div class="search_block_border_bottom"></div>
                 </div>
-                <div class="border_buttom"></div>
 
+                <div class="search_hitory">
+
+                </div>
+            </div>
+            <div class="search_block search_block_active">
+                <div class="search_block_row search_block_row_active">
+                    <svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 14C24 19.5228 19.5228 24 14 24C8.47715 24 4 19.5228 4 14C4 8.47715 8.47715 4 14 4C19.5228 4 24 8.47715 24 14ZM22.4002 25.2009C20.0603 26.9585 17.1518 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 17.1519 26.9584 20.0605 25.2007 22.4004C25.2403 22.4302 25.2791 22.4617 25.317 22.4949L33.317 29.4949C34.1483 30.2222 34.2325 31.4858 33.5052 32.317C32.7778 33.1483 31.5143 33.2325 30.683 32.5052L22.683 25.5052C22.5764 25.4119 22.4821 25.3098 22.4002 25.2009Z" fill="white" />
+                    </svg>
+                    <input class="search_block_input search_block_input_active" type="text" placeholder="Поиск фильмов по жанрам и актерам">
+                    <div class="search_block_border_bottom search_block_border_bottom_active"></div>
+                </div>
+
+                <div class="search_hitory search_hitory_active">
+                    <div class="search_history_item">Как я встретил мамку</div>
+                    <div class="search_history_item">Гоп-стоп</div>
+                    <div class="search_history_item">Весенний дрозд</div>
+                </div>
             </div>
             <div class="search_no_result"></div>
             <div class="search_result"></div>
