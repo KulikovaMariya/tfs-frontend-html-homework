@@ -54,6 +54,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .search_block_border_bottom {
@@ -70,7 +71,16 @@
 }
 
 .search_no_result {
-    height: 500px;
+    width: 604px;
+    height: 48px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 48px;
+    color: #FFFFFF;
+    /*    height: 500px;*/
+    /*    display: none;*/
 }
 
 .search_hitory {
@@ -91,6 +101,7 @@
     padding: 6px 16px;
     margin-right: 8px;
     margin-bottom: 8px;
+
 }
 
 .search_history_item:hover {
@@ -108,10 +119,136 @@
 
 .search_block_row_active {
     width: 1280px;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .search_hitory_active_more_histry {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 100px;
 }
+
+.search_result_item {
+    width: 302px;
+    height: 454px;
+    background: rgba(255, 255, 255, 0.24);
+    border-radius: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    background-size: cover;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+
+
+.search_result_item:hover .film_description_loaded {
+    display: flex;
+}
+
+.search_result_heading {
+    width: 1280px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 48px;
+    text-align: start;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+}
+
+.search_result {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+
+}
+
+
+
+.search_block_input_active {
+    width: 1150px;
+}
+
+.search_block_active {}
+
+.cross {
+    padding-left: 35px;
+
+}
+
+.cross:hover {
+    color: #FFFFFF;
+}
+
+.film_name_empty {
+    width: 246px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    margin-left: 20px;
+    margin-bottom: 8px;
+    margin-top: 330px;
+}
+
+.film_description_empty {
+    width: 156px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    margin-left: 20px;
+}
+
+.film_description {
+    color: rgba(255, 255, 255, 0.24);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    display: flex;
+    flex-flow: wrap;
+    align-items: flex-end;
+}
+
+.film_name {
+    width: 262px;
+    height: 36px;
+    font-size: 24px;
+
+}
+
+.genre {
+    width: 210px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.year {
+    width: 48px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.film_description_loaded {
+    color: grey;
+    box-sizing: border-box;
+    display: none;
+}
+
+.rating {
+    font-size: 25px;
+    margin-bottom: 2px;
+}
+
+.rating_img {
+    margin-right: 5px;
+}
+
+.container {
+    margin-bottom: 80px;
+}
+
+
