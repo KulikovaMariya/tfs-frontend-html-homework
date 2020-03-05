@@ -265,17 +265,21 @@
 opacity: 0.5;
     background: rgba(28, 28, 28, 0.8);
     margin-left: -80px;
+    border-bottom: 2px solid white;
 }
 
 .search_block_row_scroll {
     width: 1440px;
-    height: 72px;
+    height: 62px;
+    
 }
 
 .search_block_border_bottom_scroll {
     width: 1440px;
+    padding: 0;
 }
 
 .search_block_input_scroll {
     width: 1162px;
+    background: none;
 }
