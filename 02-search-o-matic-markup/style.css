@@ -3,6 +3,10 @@
     --main_backgroung: #1C1C1C;
 }
 
+.body {
+    background: var(--main_backgroung);
+}
+
 .main {
     --main_padding: 80px 80px 16px 80px;
     --main_width: 1440px;
@@ -104,7 +108,7 @@
     background: #FFFFFF;
 }
 
-.search_hitory_active {
+.search_hitory_active_short {
     display: flex;
     margin-bottom: 100px;
 }
@@ -198,6 +202,18 @@
 }
 
 .film_name {
+    width: 285px;
+    height: 50px;
+    font-size: 24px;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    align-items: center;
+
+}
+
+.film_name_unloaded {
     width: 262px;
     height: 36px;
     font-size: 24px;
@@ -207,10 +223,32 @@
     width: 210px;
     font-size: 16px;
     line-height: 24px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.4);
+    align-items: center;
+}
+
+.genre_unloaded {
+    width: 200px;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .year {
     width: 48px;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.4);
+    align-items: center;
+}
+
+.year_unloaded {
+    width: 50px;
     font-size: 16px;
     line-height: 24px;
 }
@@ -224,6 +262,11 @@
 .rating {
     font-size: 25px;
     margin-bottom: 2px;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    align-items: center;
 }
 
 .rating_img {
@@ -234,16 +277,12 @@
     margin-bottom: 80px;
 }
 
-.search {
-    display: none;
-}
-
 .search_active_more_history {
     display: none;
 }
 
-.search_active {
-/*    display: none;*/
+.search_active_block {
+    display: none;
 }
 
 .search_result_item_invisible {
@@ -262,7 +301,6 @@
 .search_block_row_scroll {
     width: 1440px;
     height: 62px;
-
 }
 
 .search_block_border_bottom_scroll {
@@ -282,10 +320,51 @@
 .cross:hover .cross_path {
     stroke-opacity: 1;
 }
-.scroll {
+
+.scroll_block {
     display: none;
 }
 
-.search_not_found {
+.search_not_found_block {
+    display: none;
+}
+
+.search_active .search {
+    display: none;
+}
+
+.search_active .search_active_block {
+    display: flex;
+}
+
+.search_live_block {
+    display: none;
+}
+
+.search_not_found .search_not_found_block {
+    display: block;
+}
+
+.search_live .search_live_block {
+    display: flex;
+}
+
+.search_more_history .search_active_more_history {
+    display: flex;
+}
+
+.search_more_history .search_hitory_active_short {
+    display: none;
+}
+
+.scroll .scroll_block {
+    display: flex;
+}
+
+.scroll .search_active_block {
+    display: none;
+}
+
+.scroll .search_active_more_history {
     display: none;
 }
