@@ -42,7 +42,6 @@
     color: white;
 }
 
-
 .search_block_row {
     width: 628px;
     margin: var(--margin);
@@ -55,7 +54,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .search_block_border_bottom {
@@ -80,7 +78,6 @@
     font-size: 36px;
     line-height: 48px;
     color: #FFFFFF;
-
 }
 
 .search_hitory {
@@ -101,7 +98,6 @@
     padding: 6px 16px;
     margin-right: 8px;
     margin-bottom: 8px;
-
 }
 
 .search_history_item:hover {
@@ -126,7 +122,6 @@
 .search_hitory_active_more_histry {
     display: flex;
     flex-wrap: wrap;
-    
 }
 
 .search_result_item {
@@ -172,11 +167,6 @@
 
 .cross {
     padding-left: 35px;
-    
-}
-
-.cross:hover {
-    color: #FFFFFF;
 }
 
 .film_name_empty {
@@ -253,7 +243,7 @@
 }
 
 .search_active {
-    display: none;
+/*    display: none;*/
 }
 
 .search_result_item_invisible {
@@ -262,8 +252,8 @@
 
 .search_block_scroll {
     position: fixed;
-      top: 0;
-opacity: 0.5;
+    top: 0;
+    opacity: 0.5;
     background: rgba(28, 28, 28, 0.8);
     margin-left: -80px;
     border-bottom: 2px solid white;
@@ -272,7 +262,7 @@ opacity: 0.5;
 .search_block_row_scroll {
     width: 1440px;
     height: 62px;
-    
+
 }
 
 .search_block_border_bottom_scroll {
@@ -283,4 +273,19 @@ opacity: 0.5;
 .search_block_input_scroll {
     width: 1162px;
     background: none;
+}
+
+.cross_path {
+    stroke-opacity: 0.4;
+}
+
+.cross:hover .cross_path {
+    stroke-opacity: 1;
+}
+.scroll {
+    display: none;
+}
+
+.search_not_found {
+    display: none;
 }
