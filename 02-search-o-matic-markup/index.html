@@ -6,71 +6,72 @@
     <title>search_o_matic</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 </head>
 
 <body class="body">
     <main class="main">
-       
-            <div class="logo">
-                <svg width="148" height="28" viewBox="0 0 148 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M29 28H15V10H0V0L44 0V10H29V28Z" fill="white" />
-                    <path d="M134 10H118V28H104V0L148 0V28H134V10Z" fill="white" />
-                    <path d="M54 26V2L70 14L54 26Z" fill="#FDCE25" />
-                    <path d="M73 25V3H79V25H73ZM83 25V3H89V25H83Z" fill="#FDCE25" />
+
+        <div class="logo">
+            <svg width="148" height="28" viewBox="0 0 148 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M29 28H15V10H0V0L44 0V10H29V28Z" fill="white" />
+                <path d="M134 10H118V28H104V0L148 0V28H134V10Z" fill="white" />
+                <path d="M54 26V2L70 14L54 26Z" fill="#FDCE25" />
+                <path d="M73 25V3H79V25H73ZM83 25V3H89V25H83Z" fill="#FDCE25" />
+            </svg>
+
+        </div>
+        <div class="search">
+
+            <div class="search_block_row">
+                <svg class="lens" width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 14C24 19.5228 19.5228 24 14 24C8.47715 24 4 19.5228 4 14C4 8.47715 8.47715 4 14 4C19.5228 4 24 8.47715 24 14ZM22.4002 25.2009C20.0603 26.9585 17.1518 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 17.1519 26.9584 20.0605 25.2007 22.4004C25.2403 22.4302 25.2791 22.4617 25.317 22.4949L33.317 29.4949C34.1483 30.2222 34.2325 31.4858 33.5052 32.317C32.7778 33.1483 31.5143 33.2325 30.683 32.5052L22.683 25.5052C22.5764 25.4119 22.4821 25.3098 22.4002 25.2009Z" fill="white" />
+                </svg>
+                <input class="search_block_input" type="text" placeholder="Поиск фильмов по жанрам и актерам">
+
+            </div>
+
+            <div class="search_hitory_empty">
+
+            </div>
+
+        </div>
+        <div class="search_active_block">
+
+
+            <div class="search_block_row search_block_row_active">
+                <svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 14C24 19.5228 19.5228 24 14 24C8.47715 24 4 19.5228 4 14C4 8.47715 8.47715 4 14 4C19.5228 4 24 8.47715 24 14ZM22.4002 25.2009C20.0603 26.9585 17.1518 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 17.1519 26.9584 20.0605 25.2007 22.4004C25.2403 22.4302 25.2791 22.4617 25.317 22.4949L33.317 29.4949C34.1483 30.2222 34.2325 31.4858 33.5052 32.317C32.7778 33.1483 31.5143 33.2325 30.683 32.5052L22.683 25.5052C22.5764 25.4119 22.4821 25.3098 22.4002 25.2009Z" fill="white" />
+                </svg>
+                <input class="search_block_input search_block_input_active" type="text" placeholder="Поиск фильмов по жанрам и актерам">
+                <svg class="cross" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="cross_path" d="M2.75742 2.75732L16.0001 16M16.0001 16L29.2427 29.2426M16.0001 16L29.2427 2.75732M16.0001 16L2.75742 29.2426" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
 
             </div>
-            <div class="search">
-
-                <div class="search_block_row">
-                    <svg class="lens" width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 14C24 19.5228 19.5228 24 14 24C8.47715 24 4 19.5228 4 14C4 8.47715 8.47715 4 14 4C19.5228 4 24 8.47715 24 14ZM22.4002 25.2009C20.0603 26.9585 17.1518 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 17.1519 26.9584 20.0605 25.2007 22.4004C25.2403 22.4302 25.2791 22.4617 25.317 22.4949L33.317 29.4949C34.1483 30.2222 34.2325 31.4858 33.5052 32.317C32.7778 33.1483 31.5143 33.2325 30.683 32.5052L22.683 25.5052C22.5764 25.4119 22.4821 25.3098 22.4002 25.2009Z" fill="white" />
-                    </svg>
-                    <input class="search_block_input" type="text" placeholder="Поиск фильмов по жанрам и актерам">
-
-                </div>
-
-                <div class="search_hitory_empty">
-
-                </div>
-
+            <div class="search_hitory_active_short">
+                <div class="search_history_item">Как я встретил мамку</div>
+                <div class="search_history_item">Гоп-стоп</div>
+                <div class="search_history_item">Весенний дрозд</div>
             </div>
-            <div class="search_active_block">
 
+        </div>
+        <div class="search_active_more_history">
 
-                <div class="search_block_row search_block_row_active">
-                    <svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 14C24 19.5228 19.5228 24 14 24C8.47715 24 4 19.5228 4 14C4 8.47715 8.47715 4 14 4C19.5228 4 24 8.47715 24 14ZM22.4002 25.2009C20.0603 26.9585 17.1518 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 17.1519 26.9584 20.0605 25.2007 22.4004C25.2403 22.4302 25.2791 22.4617 25.317 22.4949L33.317 29.4949C34.1483 30.2222 34.2325 31.4858 33.5052 32.317C32.7778 33.1483 31.5143 33.2325 30.683 32.5052L22.683 25.5052C22.5764 25.4119 22.4821 25.3098 22.4002 25.2009Z" fill="white" />
-                    </svg>
-                    <input class="search_block_input search_block_input_active" type="text" placeholder="Поиск фильмов по жанрам и актерам">
-                    <svg class="cross" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path class="cross_path" d="M2.75742 2.75732L16.0001 16M16.0001 16L29.2427 29.2426M16.0001 16L29.2427 2.75732M16.0001 16L2.75742 29.2426" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-
-                </div>
-                <div class="search_hitory_active_short">
-                    <div class="search_history_item">Как я встретил мамку</div>
-                    <div class="search_history_item">Гоп-стоп</div>
-                    <div class="search_history_item">Весенний дрозд</div>
-                </div>
-
+            <div class="search_hitory_active search_hitory_active_more_histry">
+                <div class="search_history_item">Как я встретил мамку</div>
+                <div class="search_history_item">Гоп-стоп</div>
+                <div class="search_history_item">Весенний дрозд</div>
+                <div class="search_history_item">Белоснежка и семь гномовд</div>
+                <div class="search_history_item">Трое в лодке</div>
+                <div class="search_history_item">Бандитский петербург</div>
+                <div class="search_history_item">Спящая женщина и принц</div>
+                <div class="search_history_item">Война миров</div>
+                <div class="search_history_item">Дикий дикий дикий запад</div>
             </div>
-            <div class="search_active_more_history">
+        </div>
 
-                <div class="search_hitory_active search_hitory_active_more_histry">
-                    <div class="search_history_item">Как я встретил мамку</div>
-                    <div class="search_history_item">Гоп-стоп</div>
-                    <div class="search_history_item">Весенний дрозд</div>
-                    <div class="search_history_item">Белоснежка и семь гномовд</div>
-                    <div class="search_history_item">Трое в лодке</div>
-                    <div class="search_history_item">Бандитский петербург</div>
-                    <div class="search_history_item">Спящая женщина и принц</div>
-                    <div class="search_history_item">Война миров</div>
-                    <div class="search_history_item">Дикий дикий дикий запад</div>
-                </div>
-            </div>
-     
         <div class="search_not_found_block">
             Мы не поняли о чем речь ¯\_(ツ)_/¯
         </div>
@@ -98,43 +99,60 @@
                 <div class="search_result_heading">
                     Нашли 82 фильма
                 </div>
-                <div class="search_result_item" style="background-image: url(Rectangle.svg)">
+                <div class="search_result_item">
+                   <img src="Rectangle.svg" alt="poster" class="search_result_item_backgraund">
                     <div class="film_description film_description_loaded">
                         <div class="rating"><img class="rating_img" src="r05.png" alt="good">4,8</div>
                         <div class="film_name">Форрест Гамп</div>
-                        <div class="genre">Драма</div>
-                        <div class="year">1990</div>
+                        <div class="genre_year">
+                            <div>Драма</div>
+                            <div>1990</div>
+                        </div>
+             
                     </div>
                 </div>
-                <div class="search_result_item" style="background-image: url(Rectangle3.svg)">
+                <div class="search_result_item" >
+                   <img src="Rectangle3.svg" alt="poster" class="search_result_item_backgraund">
                     <div class="film_description film_description_loaded">
                         <div class="rating"><img class="rating_img" src="r05.png" alt="good">4,9</div>
                         <div class="film_name">Спасти рядового Райана</div>
-                        <div class="genre">Драма</div>
-                        <div class="year">2005</div>
+                        <div class="genre_year">
+                            <div>Драма</div>
+                            <div>2005</div>
+                        </div>
                     </div>
                 </div>
-                <div class="search_result_item" style="background-image: url(Rectangle1.svg)">
+                <div class="search_result_item">
+                   <img src="Rectangle1.svg" alt="poster" class="search_result_item_backgraund">
                     <div class="film_description film_description_loaded">
                         <div class="rating"><img class="rating_img" src="r04.png" alt="OK">4,2</div>
                         <div class="film_name">Аполлон 13</div>
-                        <div class="genre">Драма</div>
-                        <div class="year">2000</div>
+                        <div class="genre_year">
+                            <div>Драма</div>
+                            <div>2000</div>
+                        </div>
+                      
                     </div>
                 </div>
-                <div class="search_result_item" style="background-image: url(Rectangle2.svg)">
+                <div class="search_result_item">
+                   <img src="Rectangle2.svg" alt="poster" class="search_result_item_backgraund">
                     <div class="film_description film_description_loaded">
                         <div class="rating"><img class="rating_img" src="r01.png" alt="bad">1,7</div>
                         <div class="film_name">Inferno</div>
-                        <div class="genre">Триллер</div>
-                        <div class="year">2010</div>
+                        <div class="genre_year">
+                            <div>Триллер</div>
+                            <div>2010</div>
+                        </div>
                     </div>
                 </div>
                 <div class="search_result_item">
                     <div class="film_description">
                         <div class="film_name_unloaded">Шпионский мост</div>
-                        <div class="genre_unloaded">Боевик, триллер</div>
-                        <div class="year_unloaded">2017</div>
+                         <div class="genre_year">
+                            <div>Боевик, триллер</div>
+                            <div>2017</div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="search_result_item">
