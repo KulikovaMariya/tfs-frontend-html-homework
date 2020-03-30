@@ -1,6 +1,5 @@
 import {mapMovie} from './helpers/mapMovie.js';
 
-// Components
 import './components/currentYear.js';
 import './components/movieCard.js';
 
@@ -65,15 +64,21 @@ const search = searchTerm => {
 
     fetch(
         `http://www.omdbapi.com/?apikey=7ea4aa35&type=movie&s=${searchTerm}`
-    ).then(r => r.json()
+    ).then(r => {
+        if (r.status !== 200) {
+            throw new Error('Failed to fetch');
+        }
+        return r.json();
+        }
     ).then((r) => {
+
         const {Search} = r;
         const movies = Search.map((result) => render(mapMovie(result)));
         const fragment = document.createDocumentFragment();
 
         movies.forEach((movie) => fragment.appendChild(movie));
         resultsContainer.appendChild(fragment);
-    }).then(() => {
+    }).then(r => {
         const tag = getSearchTagElementsArray().find(t => t.textContent === searchTerm);
 
         if (tag) {
@@ -84,7 +89,9 @@ const search = searchTerm => {
             searchTags.insertAdjacentElement('afterbegin', renderSearchTag(searchTerm));
             updateLocalStorage();
         }
-    }).then(() => {
+    }, error => {
+        document.querySelector('.results__heading').textContent = `Мы не смогли найти ${searchTerm}`;
+    }).finally(() => {
         setTimeout(() => {
             preloader.classList.add('done');
         }, 200);
