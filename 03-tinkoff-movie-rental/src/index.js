@@ -59,13 +59,13 @@ const clearResultContainer = () => {
     }
 }
 
-const renderResultContainer = searchResult => {
+const renderResultContainer = (searchResult, totalResults) => {
     const movies = searchResult.map((result) => renderMovieCard(mapMovie(result)));
     const fragment = document.createDocumentFragment();
 
     movies.forEach((movie) => fragment.appendChild(movie));
     resultsContainer.appendChild(fragment);
-    document.querySelector('.results__heading').textContent = `Найдено фильмов: ${movies.length}`;
+    document.querySelector('.results__heading').textContent = `Найдено фильмов: ${totalResults}`;
 }
 
 const hideLoader = () => {
@@ -76,7 +76,8 @@ const hideLoader = () => {
 
 const renderPage = (promise, searchTerm) => {
     promise.then(r => {
-        renderResultContainer(r);
+        const {Search, totalResults} = r;
+        renderResultContainer(Search, totalResults);
     }).then(r => {
         const tag = getSearchTagElementsArray().find(t => t.textContent === searchTerm);
 
@@ -106,12 +107,10 @@ const executeSearch = (searchTerm) => {
         if (r.status !== 200) {
             throw new Error('Failed to fetch');
         }
-        return r.json();
-    }).then((r) => {
-        const {Search} = r;
-        searchHistory.storage.set(searchTerm, Search);
-        return Search;
-    });
+        const resp = r.json();
+        searchHistory.storage.set(searchTerm, resp);
+        return resp;
+    })
 }
 
 const search = searchTerm => {
