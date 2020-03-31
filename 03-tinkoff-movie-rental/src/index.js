@@ -1,5 +1,5 @@
 import {mapMovie} from './helpers/mapMovie.js';
-
+import SearchHistoryStorage from './helpers/searchHistoryStorage.js';
 import './components/currentYear.js';
 import './components/movieCard.js';
 
@@ -7,6 +7,9 @@ const resultsContainer = document.querySelector('.results__grid');
 const form = document.querySelector('.search__form');
 const input = document.querySelector('.search__input');
 const searchTags = document.querySelector('.search__tags');
+const preloader = document.querySelector('.preloader');
+const searchHistory = new SearchHistoryStorage();
+
 
 const getSearchTagElementsArray = () => {
     return Array.from(searchTags.getElementsByClassName('search__tag'));
@@ -21,7 +24,7 @@ const renderSearchTag = searchTerm => {
     return tag;
 }
 
-const render = (movieData) => {
+const renderMovieCard = (movieData) => {
     const movie = document.createElement('movie-card');
 
     movie.poster = movieData.poster;
@@ -56,28 +59,24 @@ const clearResultContainer = () => {
     }
 }
 
-const search = searchTerm => {
-    const preloader = document.querySelector('.preloader');
+const renderResultContainer = searchResult => {
+    const movies = searchResult.map((result) => renderMovieCard(mapMovie(result)));
+    const fragment = document.createDocumentFragment();
 
-    preloader.classList.remove('done');
-    clearResultContainer();
+    movies.forEach((movie) => fragment.appendChild(movie));
+    resultsContainer.appendChild(fragment);
+    document.querySelector('.results__heading').textContent = `Найдено фильмов: ${movies.length}`;
+}
 
-    fetch(
-        `http://www.omdbapi.com/?apikey=7ea4aa35&type=movie&s=${searchTerm}`
-    ).then(r => {
-        if (r.status !== 200) {
-            throw new Error('Failed to fetch');
-        }
-        return r.json();
-        }
-    ).then((r) => {
+const hideLoader = () => {
+    setTimeout(() => {
+        preloader.classList.add('done');
+    }, 200);
+}
 
-        const {Search} = r;
-        const movies = Search.map((result) => render(mapMovie(result)));
-        const fragment = document.createDocumentFragment();
-
-        movies.forEach((movie) => fragment.appendChild(movie));
-        resultsContainer.appendChild(fragment);
+const renderPage = (promise, searchTerm) => {
+    promise.then(r => {
+        renderResultContainer(r);
     }).then(r => {
         const tag = getSearchTagElementsArray().find(t => t.textContent === searchTerm);
 
@@ -92,24 +91,51 @@ const search = searchTerm => {
     }, error => {
         document.querySelector('.results__heading').textContent = `Мы не смогли найти ${searchTerm}`;
     }).finally(() => {
-        setTimeout(() => {
-            preloader.classList.add('done');
-        }, 200);
-    })
-};
+        hideLoader();
+    });
+}
 
+const search = searchTerm => {
+    preloader.classList.remove('done');
+    clearResultContainer();
+
+    if (searchHistory.storage.get(searchTerm)) {
+        const promise = new Promise((resolve, reject) => {
+            const searchResult = searchHistory.storage.get(searchTerm);
+            renderResultContainer(searchResult);
+            hideLoader();
+            resolve();
+        });
+        renderPage(promise, searchTerm);
+        return;
+    }
+
+    const promise = fetch(
+        `http://www.omdbapi.com/?apikey=7ea4aa35&type=movie&s=${searchTerm}`
+    ).then(r => {
+            if (r.status !== 200) {
+                throw new Error('Failed to fetch');
+            }
+            return r.json();
+    }).then((r) => {
+        const {Search} = r;
+        searchHistory.storage.set(searchTerm, Search);
+        return Search;
+    });
+    renderPage(promise, searchTerm);
+};
 
 const subscribeToSubmit = () => {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        search(input.value);
+        search(input.value.toLowerCase());
         input.value = '';
     });
 };
 
 const onTagClick = e => {
     if (e.target.classList.contains('search__tag')) {
-        search(e.target.textContent);
+        search(e.target.textContent.toLowerCase());
     }
 }
 
