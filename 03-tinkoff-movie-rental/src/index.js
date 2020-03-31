@@ -95,33 +95,31 @@ const renderPage = (promise, searchTerm) => {
     });
 }
 
-const search = searchTerm => {
-    preloader.classList.remove('done');
-    clearResultContainer();
+const loadFromCache = async (searchTerm) => {
+   return searchHistory.storage.get(searchTerm);
+}
 
-    if (searchHistory.storage.get(searchTerm)) {
-        const promise = new Promise((resolve, reject) => {
-            const searchResult = searchHistory.storage.get(searchTerm);
-            renderResultContainer(searchResult);
-            hideLoader();
-            resolve();
-        });
-        renderPage(promise, searchTerm);
-        return;
-    }
-
-    const promise = fetch(
+const executeSearch = (searchTerm) => {
+    return  fetch(
         `http://www.omdbapi.com/?apikey=7ea4aa35&type=movie&s=${searchTerm}`
     ).then(r => {
-            if (r.status !== 200) {
-                throw new Error('Failed to fetch');
-            }
-            return r.json();
+        if (r.status !== 200) {
+            throw new Error('Failed to fetch');
+        }
+        return r.json();
     }).then((r) => {
         const {Search} = r;
         searchHistory.storage.set(searchTerm, Search);
         return Search;
     });
+}
+
+const search = searchTerm => {
+    preloader.classList.remove('done');
+    clearResultContainer();
+
+    const promise = searchHistory.storage.get(searchTerm) ? loadFromCache(searchTerm) : executeSearch(searchTerm);
+
     renderPage(promise, searchTerm);
 };
 
