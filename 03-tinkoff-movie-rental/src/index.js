@@ -33,6 +33,7 @@ const renderMovieCard = (movieData) => {
     movie.year = movieData.year;
     movie.link = movieData.link;
     movie.rating = movieData.rating;
+    movie.genre = movieData.genre;
 
     return movie;
 };

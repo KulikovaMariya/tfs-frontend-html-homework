@@ -5,5 +5,6 @@ export const mapMovie = (movie) => ({
   link: `https://www.imdb.com/title/${movie.imdbID}/`,
   poster: movie.Poster,
   imdbID: movie.imdbID,
+  genre: movie.Genre,
 
 });
