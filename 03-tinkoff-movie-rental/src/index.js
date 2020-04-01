@@ -3,6 +3,7 @@ import {makeRequests} from "./helpers/makeRequests.js";
 import SearchHistoryStorage from './helpers/searchHistoryStorage.js';
 import './components/currentYear.js';
 import './components/movieCard.js';
+import {debounce} from './helpers/debounce.js';
 
 const resultsContainer = document.querySelector('.results__grid');
 const form = document.querySelector('.search__form');
@@ -10,7 +11,6 @@ const input = document.querySelector('.search__input');
 const searchTags = document.querySelector('.search__tags');
 const preloader = document.querySelector('.preloader');
 const searchHistory = new SearchHistoryStorage();
-
 
 const getSearchTagElementsArray = () => {
     return Array.from(searchTags.getElementsByClassName('search__tag'));
@@ -132,6 +132,8 @@ const search = searchTerm => {
     renderPage(promise, searchTerm);
 };
 
+const searchDebounced = debounce(search, 500);
+
 const subscribeToSubmit = () => {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -165,6 +167,15 @@ const subscribeMouseListener = () => {
     })
 }
 
+const subscribeInputListener = () => {
+    input.addEventListener('input', evt => {
+        if (input.value.length > 1) {
+            searchDebounced(input.value);
+        }
+    });
+}
+
 renderSearchTags();
 subscribeToSubmit();
 subscribeMouseListener();
+subscribeInputListener();
