@@ -1,4 +1,5 @@
 import {mapMovie} from './helpers/mapMovie.js';
+import {makeRequests} from "./helpers/makeRequests.js";
 import SearchHistoryStorage from './helpers/searchHistoryStorage.js';
 import './components/currentYear.js';
 import './components/movieCard.js';
@@ -59,13 +60,13 @@ const clearResultContainer = () => {
     }
 }
 
-const renderResultContainer = (searchResult, totalResults) => {
-    const movies = searchResult.map((result) => renderMovieCard(mapMovie(result)));
+const renderResultContainer = (r) => {
+    const movies = r.detailedResults.map((result) => renderMovieCard(mapMovie(result)));
     const fragment = document.createDocumentFragment();
 
     movies.forEach((movie) => fragment.appendChild(movie));
     resultsContainer.appendChild(fragment);
-    document.querySelector('.results__heading').textContent = `Найдено фильмов: ${totalResults}`;
+    document.querySelector('.results__heading').textContent = `Найдено фильмов: ${r.totalResults}`;
 }
 
 const hideLoader = () => {
@@ -76,8 +77,7 @@ const hideLoader = () => {
 
 const renderPage = (promise, searchTerm) => {
     promise.then(r => {
-        const {Search, totalResults} = r;
-        renderResultContainer(Search, totalResults);
+        renderResultContainer(r);
     }).then(r => {
         const tag = getSearchTagElementsArray().find(t => t.textContent === searchTerm);
 
@@ -97,7 +97,9 @@ const renderPage = (promise, searchTerm) => {
 }
 
 const loadFromCache = async (searchTerm) => {
-   return searchHistory.storage.get(searchTerm);
+   const {Search, totalResults} = searchHistory.storage.get(searchTerm);
+   const detailedResults = Search.map(result => searchHistory.storageByImdbId.get(result.imdbID));
+   return {detailedResults, totalResults};
 }
 
 const executeSearch = (searchTerm) => {
@@ -107,10 +109,18 @@ const executeSearch = (searchTerm) => {
         if (r.status !== 200) {
             throw new Error('Failed to fetch');
         }
-        const resp = r.json();
+        return r.json();
+    }).then(resp => {
         searchHistory.storage.set(searchTerm, resp);
-        return resp;
-    })
+        const {Search, totalResults} = resp;
+        const urlsById = Search.map(result => `http://www.omdbapi.com/?apikey=7ea4aa35&type=movie&i=${mapMovie(result).imdbID}`);
+        return makeRequests(urlsById, 4).then(detailedResults => {
+            return {detailedResults, totalResults}
+        });
+    }).then(resObj => {
+        resObj.detailedResults.forEach(r => searchHistory.storageByImdbId.set(r.imdbID, r));
+        return resObj;
+    });
 }
 
 const search = searchTerm => {
