@@ -95,7 +95,7 @@ const renderPage = (promise, searchTerm) => {
         updateTagsList(searchTerm);
         updateLocalStorage();
     }, error => {
-        document.querySelector('.results__heading').textContent = `Мы не смогли найти ${searchTerm}`;
+        document.querySelector('.results__heading').textContent = `Ошибка: ${error.message}`;
     }).finally(() => {
         hideLoader();
     });
@@ -112,10 +112,13 @@ const executeSearch = (searchTerm) => {
         `http://www.omdbapi.com/?apikey=7ea4aa35&type=movie&s=${searchTerm}`
     ).then(r => {
         if (r.status !== 200) {
-            throw new Error('Failed to fetch');
+            throw new Error(r.status);
         }
         return r.json();
     }).then(resp => {
+        if (!!resp) {
+            throw new Error(`по запросу ${searchTerm} ничего не найдено`);
+        }
         searchHistory.storage.set(searchTerm, resp);
         const {Search, totalResults} = resp;
         const urlsById = Search.map(movie => `http://www.omdbapi.com/?apikey=7ea4aa35&type=movie&i=${movie.imdbID}`);
