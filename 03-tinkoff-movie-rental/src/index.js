@@ -25,7 +25,7 @@ const renderSearchTag = searchTerm => {
     return tag;
 }
 
-const renderMovieCard = (movieData) => {
+const renderMovieCard = movieData => {
     const movie = document.createElement('movie-card');
 
     movie.poster = movieData.poster;
@@ -76,20 +76,23 @@ const hideLoader = () => {
     }, 200);
 }
 
+const updateTagsList = searchTerm => {
+    let tag = getSearchTagElementsArray().find(t => t.textContent === searchTerm);
+
+    if (tag) {
+        searchTags.removeChild(tag);
+    } else {
+        tag = renderSearchTag(searchTerm);
+    }
+    searchTags.insertAdjacentElement('afterbegin', tag);
+}
+
 const renderPage = (promise, searchTerm) => {
     promise.then(r => {
         renderResultContainer(r);
     }).then(r => {
-        const tag = getSearchTagElementsArray().find(t => t.textContent === searchTerm);
-
-        if (tag) {
-            searchTags.removeChild(tag);
-            searchTags.insertAdjacentElement('afterbegin', tag);
-            updateLocalStorage();
-        } else {
-            searchTags.insertAdjacentElement('afterbegin', renderSearchTag(searchTerm));
-            updateLocalStorage();
-        }
+        updateTagsList(searchTerm);
+        updateLocalStorage();
     }, error => {
         document.querySelector('.results__heading').textContent = `Мы не смогли найти ${searchTerm}`;
     }).finally(() => {
@@ -149,7 +152,7 @@ const onTagClick = e => {
     }
 }
 
-const onTagDbClick = e => {
+const onTagDblClick = e => {
     if (e.target.classList.contains('search__tag')) {
         searchTags.removeChild(e.target);
     }
@@ -164,7 +167,7 @@ const subscribeMouseListener = () => {
     });
     searchTags.addEventListener('dblclick', evt => {
         clearTimeout(timer);
-        onTagDbClick(evt);
+        onTagDblClick(evt);
     })
 }
 
