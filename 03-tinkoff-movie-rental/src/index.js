@@ -139,14 +139,6 @@ const search = searchTerm => {
 
 const searchDebounced = debounce(search, 500);
 
-const subscribeToSubmit = () => {
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        search(input.value.toLowerCase());
-        input.value = '';
-    });
-};
-
 const onTagClick = e => {
     if (e.target.classList.contains('search__tag')) {
         search(e.target.textContent.toLowerCase());
@@ -181,6 +173,5 @@ const subscribeInputListener = () => {
 }
 
 renderSearchTags();
-subscribeToSubmit();
 subscribeMouseListener();
 subscribeInputListener();
