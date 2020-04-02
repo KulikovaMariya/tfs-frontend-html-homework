@@ -71,28 +71,3 @@
 .search__tag:hover {
   background-color: #ffffff;
 }
-
-/* Scroll */
-.search__form--scroll {
-  position: fixed;
-  justify-content: normal;
-  top: 0;
-  width: 100%;
-  left: 0;
-  z-index: 10;
-}
-
-.search__form--scroll .search__input {
-  width: 100%;
-  margin-top: 0;
-  background-color: rgba(28, 28, 28, 0.8);
-  backdrop-filter: blur(4px);
-}
-
-.search__form--scroll .search__tags {
-  margin-left: 8px;
-}
-
-.search__form--scroll .search__tags:before {
-  top: 20px;
-}
