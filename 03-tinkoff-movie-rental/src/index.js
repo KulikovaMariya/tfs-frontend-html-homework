@@ -34,6 +34,7 @@ const renderMovieCard = movieData => {
     movie.link = movieData.link;
     movie.rating = movieData.rating;
     movie.genre = movieData.genre;
+    movie.rating_img = movieData.rating_img;
 
     return movie;
 };
@@ -117,7 +118,7 @@ const executeSearch = (searchTerm) => {
     }).then(resp => {
         searchHistory.storage.set(searchTerm, resp);
         const {Search, totalResults} = resp;
-        const urlsById = Search.map(result => `http://www.omdbapi.com/?apikey=7ea4aa35&type=movie&i=${mapMovie(result).imdbID}`);
+        const urlsById = Search.map(movie => `http://www.omdbapi.com/?apikey=7ea4aa35&type=movie&i=${movie.imdbID}`);
         return makeRequests(urlsById, 4).then(detailedResults => {
             return {detailedResults, totalResults}
         });

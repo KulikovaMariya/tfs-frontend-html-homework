@@ -52,8 +52,19 @@
     opacity: 1;
 }
 
+.movie-rating-container {
+    width: 62px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
 .movie-rating {
     color: #fff;
+}
+
+.movie-rating-img {
+    height: 24px;
 }
 
 .movie-title {

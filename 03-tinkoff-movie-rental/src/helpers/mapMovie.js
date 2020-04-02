@@ -6,5 +6,29 @@ export const mapMovie = (movie) => ({
   poster: movie.Poster,
   imdbID: movie.imdbID,
   genre: movie.Genre,
-
+  rating_img: getRatingImage(movie.imdbRating),
 });
+
+const getRatingImage = (r) => {
+  const rNum = parseFloat(r);
+
+  if (rNum <= 2) {
+    return 'src/images/r01.png';
+  }
+
+  if (rNum <= 4) {
+    return 'src/images/r02.png';
+  }
+
+  if (rNum <= 6) {
+    return 'src/images/r03.png';
+  }
+
+  if (rNum <= 8) {
+    return 'src/images/r04.png';
+  }
+
+  if (rNum <= 10) {
+    return 'src/images/r05.png';
+  }
+};
