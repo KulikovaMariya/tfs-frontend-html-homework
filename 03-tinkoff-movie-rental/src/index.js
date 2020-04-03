@@ -20,7 +20,7 @@ const renderSearchTag = searchTerm => {
 
     const tag = document.createElement('a');
     tag.classList.add('search__tag');
-    tag.textContent = searchTerm;
+    tag.textContent = searchTerm.toLowerCase();
 
     return tag;
 }
@@ -78,7 +78,7 @@ const hideLoader = () => {
 }
 
 const updateTagsList = searchTerm => {
-    let tag = getSearchTagElementsArray().find(t => t.textContent === searchTerm);
+    let tag = getSearchTagElementsArray().find(t => t.textContent === searchTerm.toLowerCase());
 
     if (tag) {
         searchTags.removeChild(tag);
