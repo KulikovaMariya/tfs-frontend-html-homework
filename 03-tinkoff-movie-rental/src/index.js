@@ -116,11 +116,11 @@ const executeSearch = (searchTerm) => {
         }
         return r.json();
     }).then(resp => {
-        if (!!resp) {
+        const {Search, totalResults} = resp;
+        if (!Search) {
             throw new Error(`по запросу ${searchTerm} ничего не найдено`);
         }
         searchHistory.storage.set(searchTerm, resp);
-        const {Search, totalResults} = resp;
         const urlsById = Search.map(movie => `http://www.omdbapi.com/?apikey=7ea4aa35&type=movie&i=${movie.imdbID}`);
         return makeRequests(urlsById, 4).then(detailedResults => {
             return {detailedResults, totalResults}
