@@ -152,6 +152,7 @@ const onTagClick = e => {
 const onTagDblClick = e => {
     if (e.target.classList.contains('search__tag')) {
         searchTags.removeChild(e.target);
+        updateLocalStorage();
     }
 }
 
