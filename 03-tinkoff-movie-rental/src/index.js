@@ -108,6 +108,7 @@ const loadFromCache = async (searchTerm) => {
 }
 
 const executeSearch = (searchTerm) => {
+    input.value = '';
     return  fetch(
         `http://www.omdbapi.com/?apikey=7ea4aa35&type=movie&s=${searchTerm}`
     ).then(r => {
@@ -171,7 +172,9 @@ const subscribeInputListener = () => {
     input.addEventListener('input', evt => {
         if (input.value.length > 1) {
             searchDebounced(input.value);
+
         }
+
     });
 }
 
